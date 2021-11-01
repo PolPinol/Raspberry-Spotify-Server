@@ -91,7 +91,7 @@ static int __init ebbgpio_init(void){
    result3 = request_irq(irqNumber3, (irq_handler_t) ebbgpio_irq_handler3, IRQF_TRIGGER_RISING, "ebb_gpio_handler", NULL);
    result4 = request_irq(irqNumber4, (irq_handler_t) ebbgpio_irq_handler4, IRQF_TRIGGER_RISING, "ebb_gpio_handler", NULL);                        
    
-   return result3 * result4 * result1 * result2;
+   return result3 + result4 + result1 + result2;
 }
 
 static void __exit ebbgpio_exit(void){
