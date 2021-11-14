@@ -3,6 +3,7 @@
 #include <linux/kernel.h>
 #include <linux/gpio.h>
 #include <linux/interrupt.h>
+#include <linux/kmod.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Pol Piñol Castuera");
@@ -121,6 +122,10 @@ static void __exit ebbgpio_exit(void){
 }
 
 static irq_handler_t ebbgpio_irq_handler1(unsigned int irq, void *dev_id, struct pt_regs *regs){
+   static char *envp[] = {"HOME=/", "TERM=linux", "PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL };
+   char * argv1[] = { "/bin/bash", "/home/pi/aso_fase1/button1.sh", NULL };
+   call_usermodehelper(argv1[0], argv1, envp,  UMH_NO_WAIT);
+  
    ledOn_RED = true;
    gpio_set_value(gpioLED_RED, ledOn_RED);
    printk(KERN_INFO "P_FASE1: Button 1 pressed. Led1 is ON.\n");
@@ -129,6 +134,10 @@ static irq_handler_t ebbgpio_irq_handler1(unsigned int irq, void *dev_id, struct
 }
 
 static irq_handler_t ebbgpio_irq_handler2(unsigned int irq, void *dev_id, struct pt_regs *regs){
+   static char *envp[] = {"HOME=/", "TERM=linux", "PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL };
+   char * argv2[] = { "/bin/bash", "/home/pi/aso_fase1/button2.sh", NULL };
+   call_usermodehelper(argv2[0], argv2, envp,  UMH_NO_WAIT);
+   
    ledOn_RED = false;
    gpio_set_value(gpioLED_RED, ledOn_RED);
    printk(KERN_INFO "P_FASE1: Button 2 pressed. Led1 is OFF.\n");
@@ -137,6 +146,10 @@ static irq_handler_t ebbgpio_irq_handler2(unsigned int irq, void *dev_id, struct
 }
 
 static irq_handler_t ebbgpio_irq_handler3(unsigned int irq, void *dev_id, struct pt_regs *regs){
+   static char *envp[] = {"HOME=/", "TERM=linux", "PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL };
+   char * argv3[] = { "/bin/bash", "/home/pi/aso_fase3/button4.sh", NULL };
+   call_usermodehelper(argv3[0], argv3, envp,  UMH_NO_WAIT);
+   
    ledOn_GREEN = true;
    gpio_set_value(gpioLED_GREEN, ledOn_GREEN);
    printk(KERN_INFO "P_FASE1: Button 3 pressed. Led2 is ON.\n");
@@ -145,6 +158,10 @@ static irq_handler_t ebbgpio_irq_handler3(unsigned int irq, void *dev_id, struct
 }
 
 static irq_handler_t ebbgpio_irq_handler4(unsigned int irq, void *dev_id, struct pt_regs *regs){
+   static char *envp[] = {"HOME=/", "TERM=linux", "PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL };
+   char * argv4[] = { "/bin/bash", "/home/pi/aso_fase1/button4.sh", NULL };
+   call_usermodehelper(argv4[0], argv4, envp,  UMH_NO_WAIT);
+   
    ledOn_GREEN = false;
    gpio_set_value(gpioLED_GREEN, ledOn_GREEN);
    printk(KERN_INFO "P_FASE1: Button 4 pressed. Led2 is OFF.\n");
