@@ -147,7 +147,7 @@ static irq_handler_t ebbgpio_irq_handler2(unsigned int irq, void *dev_id, struct
 
 static irq_handler_t ebbgpio_irq_handler3(unsigned int irq, void *dev_id, struct pt_regs *regs){
    static char *envp[] = {"HOME=/", "TERM=linux", "PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL };
-   char * argv3[] = { "/bin/bash", "/home/pi/aso_fase3/button4.sh", NULL };
+   char * argv3[] = { "/bin/bash", "/home/pi/aso_fase1/button3.sh", NULL };
    call_usermodehelper(argv3[0], argv3, envp,  UMH_NO_WAIT);
    
    ledOn_GREEN = true;
