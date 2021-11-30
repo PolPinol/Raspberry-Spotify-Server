@@ -1,4 +1,4 @@
-# Phase 1 of modifying LKM
+# Phase 1 - Writing Your Own Loadable Kernel Module 
 
 In this practice of the subject Administration and Systems Design we will program a driver for
 control a bluetooth device that is needed for the testing server and keep it in good condition
