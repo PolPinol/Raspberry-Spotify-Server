@@ -13,7 +13,7 @@ sudo systemctl restart apache2
 
 #TODO: Instalem git per crear els scripts al lloc corresponent
 sudo apt-get install git
-git clone https://github.com/GuillemSeCa/Raspberry_Spotify_Server $HOME/Desktop
+git clone https://github.com/PolPinol/Raspberry_Spotify_Server $HOME/Desktop
 cd $HOME/Desktop && git checkout dev
 
 cd $HOME/Desktop/code && make && sudo insmod LKM.ko && cp A.sh /home/pi/A.sh && cp B.sh /home/pi/B.sh && cp C.sh /home/pi/C.sh && cp D.sh /home/pi/D.sh && chmod +x /home/pi/A.sh /home/pi/B.sh /home/pi/C.sh /home/pi/D.sh
